@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutoDTO } from '../../models/produto.dto';
 import { API_CONFIG } from '../../config/api.config';
 import { ProdutoService } from '../../services/domain/produto.service';
+import { Observable } from 'rxjs';
 
 @IonicPage()
 @Component({
@@ -39,7 +40,8 @@ export class ProdutosPage {
         error => {});
     }
   }
-  showDetail(){
-    this.navCtrl.push('ProdutoDetailPage')
+  showDetail(produto_id: string){
+    this.navCtrl.push('ProdutoDetailPage', {produto_id: produto_id});
   }  
+  
 }
